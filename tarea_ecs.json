@@ -1,0 +1,40 @@
+{
+    "cluster": "app02",
+    "count": 1,
+    "launchType": "FARGATE",
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-0a2c17d13946141ce",
+                "subnet-00d3671b57aaaf788",
+                "subnet-065b351eff63ae61c",
+                "subnet-0be76e4bdf77bedf5",
+                "subnet-0ba8136f38d9e2212",
+                "subnet-03fcdd37e5f3e28ec"
+            ],
+            "securityGroups": [
+                "sg-0c98aa5bac6576e64"
+            ],
+            "assignPublicIp": "ENABLED"
+        }
+    },
+    "platformVersion": "LATEST",
+    "taskDefinition": "api-students:1",
+    "overrides": {
+        "containerOverrides": [
+            {
+                "environment": [
+                    {
+                        "name": "AWS_REGION",
+                        "value": "us-east-1"
+                    },
+                    {
+                        "name": "DB_USER",
+                        "value": "USER01"
+                    }
+                ],
+                "name": "api-students"
+            }
+        ]
+    }
+}
